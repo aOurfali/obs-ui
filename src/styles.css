@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+
+    /* Background colors*/
+    --color-background: #e6ebed;
+    --color-background-accent: #c8d3d8;
+    --color-background-accent-debug2: #a52a2a;
+
+    /* Text colors */
+    --color-text: #225062;
+
+    /* Fonts */
+    --font-default: 'Noto Sans Display', sans-serif;
+    --font-monospace: 'Noto Sans Mono', monospace;
+  
+    /* primary color */
+    --color-primary: #5a009e;
+  
+    /* Akzent-Farben */
+    --color-accent1: #5a2980;
+    --color-accent2: #654181;
+    --color-accent3: #8556a9;
+  }

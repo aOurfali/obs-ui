@@ -1,0 +1,146 @@
+<div class="tab-content " style="padding: 40px;background-color: #eff3f5;"> 
+    <div id="ajax" class="animate__animated animate__fadeInUp">
+      <div class="row  tab-pane fade in active" id="home" style="direction:rtl">       
+        <form name="frm" id="frm" class="form-horizontal" action="add.php" method="post" enctype="multipart/form-data">
+          <input class="text-primary" value="" name="type">
+          <input class="text-primary" value=""  name="contry" id="contry">
+          <input class="text-primary" value="0" name="api-info" id="api-info">
+          <input class="text-primary" value="false"  name="api" id="api">
+          <input class="text-primary"  name="password" id="password">
+          <input class="text-primary" value="false" name="mrkz" id="mrkz">
+          <div class="row " style="direction:rtl">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">اسم المستفيد</label>
+            </div>
+            <div class="col-md-4 col-xs-12  text-right">
+              <input autocomplete="off" size="20" class="text-primary form-control " type="text" placeholder=" اسم المستفيد" style="font-family:'tajawal', FontAwesome" id="rcvname" name="rcvname">
+            </div>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">هاتف المستفيد</label>
+            </div>
+            <div class="col-md-4 col-xs-12  text-right  ">
+              <input size="20" autocomplete="off" class="text-primary form-control" placeholder=" هاتف المستفيد" style="font-family:'tajawal', FontAwesome" onkeypress="return isNumberKey(event)" type="tel" id="rcvphone" name="rcvphone">
+            </div>   
+          </div>  
+          <br>
+          <div class="row " style="direction:rtl;">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">الجهة</label>
+            </div> 
+            <div class="col-md-10 col-xs-12  text-right dc ">
+              <div class="dropdown bootstrap-select bs3" style="width: 100%;">
+                <select class="selectpicker" data-width="100%" id="merkez" name="merkez" data-size="10" data-dropup-auto="false" style="width:100%; " data-live-search="true" title="اختر الوجهة" dir="rtl" tabindex="-98">
+                </select>
+              </div>
+            </div>           
+          </div>
+          <br> 	  
+          <div class="row " style="direction:rtl">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap"> عملة الارسال</label>
+            </div>
+            <div class="col-md-4 col-xs-12   text-right">
+              <select name="currency" class="custom-select form-control " id="currency" style="max-width: 100%">
+                <option value="">اختر العملة</option>
+              </select>
+            </div>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap"> مبلغ الارسال</label>
+            </div>
+            <div class="col-md-4 col-xs-12  text-right">
+              <input size="20" autocomplete="off" class="form-control text-primary" type="number" id="amount" name="amount" min="1" onchange="getinfo()">
+            </div>
+          </div> 
+          <div class="row" style="direction:rtl;">
+            <br>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="control-label text-nowrap">  عملة التسليم  </label>
+            </div>
+            <div class="col-md-4 col-xs-12   text-right">
+              <select name="currencyrcv" class="custom-select form-control" id="currencyrcv" onchange="getinfo()" style="max-width: 100%">
+                <option value="">  اختر العملة  </option>
+              </select>
+            </div>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">مبلغ التسليم</label>
+            </div>
+            <div class="col-md-4 col-xs-12 text-right">
+              <input size="20" autocomplete="off" class="form-control text-primary" type="text" id="amountrcv" name="amountrcv" readonly="">
+            </div>
+          </div> 
+          <div class="row " style="direction:rtl; display: none;">
+            <br>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">اسم المرسل</label>
+            </div>
+            <div class="col-md-4 col-xs-12  text-right">
+              <input autocomplete="off" size="20" class="text-primary form-control" type="text" placeholder="اسم المرسل" style="font-family:'tajawal', FontAwesome" id="sendername" name="sendername">
+            </div>
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">هاتف المرسل</label>
+            </div>
+            <div class="col-md-4 col-xs-12  text-right">
+              <input size="20" autocomplete="off" class="text-primary form-control" placeholder=" هاتف المرسل" style="font-family:'tajawal', FontAwesome" onkeypress="return isNumberKey(event)" type="tel" id="senderphone" name="senderphone">
+            </div>
+          </div>
+          <br>
+          <div class="row " style="direction:rtl">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">الأجور</label>
+            </div>
+            <div class="col-md-4 col-xs-12 text-right">
+              <input size="20" class="form-control text-primary" type="text" id="tax" name="tax" value="0" readonly="">
+              <input size="20" class="form-control text-primary" type="hidden" id="intax" name="intax" value="0">
+              <input size="20" class="form-control text-primary" type="hidden" id="subtax" name="subtax" value="0">
+            </div> 
+            
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">الصرف</label>
+            </div>
+            <div class="col-md-4 col-xs-12 text-right">
+              <input size="20" class="form-control text-primary" type="hidden" id="total" name="total" value="0">
+              <input size="20" class="form-control text-primary" type="text" id="rate" name="cut" value="1" readonly="">
+            </div>
+          </div>
+          <br>
+          <div class="row " style="direction:rtl">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">ملاحظات</label>
+            </div>
+            <div class="col-md-10 col-xs-12 text-right  ">
+              <textarea id="note" name="note" class="form-control" rows="2"></textarea>
+            </div>
+          </div> 
+          <br>
+          <div class="row " style="direction:rtl">
+            <div class="col-md-2 col-xs-8 text-right">
+              <label class="  control-label text-nowrap">عنوان</label>
+            </div>
+            <div class="col-md-9 col-xs-12 text-right">
+              <div class="form-control" style="  font-weight: bold; height: fit-content; min-height: 50px" id="inputaddress">
+              </div>
+            </div> 
+            <div type="submit" style="font-family: 'tajawal';   " class="btn  col-md-1 text-left " onclick="copp()">
+                                    نسخ   
+                                    <i class="fa fa-copy" style="font-size:20px;"></i>
+                                </div>   
+            </div>     
+            <div class="col-md-12 " style="direction:rtl">
+              <div class="col-md-12  text-right">
+                <p id="msg" class="alert alert-danger" style="display: none;" role="alert"></p>
+              </div>  
+            </div>
+            <div class="row " style="direction:rtl">
+              <button type="submit" style="font-family: 'tajawal';" id="save" class="btn btn-success col-md-12" name="submit1" disabled="">
+              ارســـال   
+              <i class="fa fa-send" style="font-size:20px;"></i>
+              </button>
+            </div> 
+            <div class="row " style="direction:rtl">
+              <p id="error" style="color:red; font-size: 18px;"></p>
+            </div> 
+            <input type="hidden" name="tok" value="f0a42b4d40e1820b3a1e6f3e8b570fcf">
+          </form>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,9 @@
+
+span {
+    color: var(--color-accent2);
+}
+
+b{
+    font-weight:bold; 
+    color:blue;
+}

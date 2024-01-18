@@ -1,0 +1,107 @@
+<div class="hmz">
+    <form>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="name" class="form-control" id="centername" type="text" name="centername" >
+            </div>
+            <label for="centername" class="col-sm-1 col-form-label">:اسم المركز</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="countryname" list="countryname" autocomplete="off"  name="country">
+            </div>
+            <label for="countryname" class="col-sm-1 col-form-label">:الدولة</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="cityname" list="cityname" autocomplete="off" name="city">
+            </div>
+            <label for="cityname" class="col-sm-1 col-form-label">:المدينة</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="adress" name="adress">
+            </div>
+            <label for="adress" class="col-sm-1 col-form-label">:العنوان</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" pattern="[0-9]" class="form-control" id="phone" name="phone">
+            </div>
+            <label for="phone" class="col-sm-1 col-form-label">:الهاتف</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="username" type="text" name="username" >
+            </div>
+            <label for="username" class="col-sm-1 col-form-label">:اسم المستخدم</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="password" name="password" class="form-control" id="password" >
+            </div>
+            <label for="password" class="col-sm-1 col-form-label">:كلمة السر</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+             <div class="col-sm-7">
+                <select id="usertype" name="usertype" class="custom-select mr-sm-8 form-control" style="text-align: end;">
+                  <option value=""></option>
+                  <option value="merkez">مركز</option><option value="acc">عميل</option><option value="nizam">مركز نظام</option>
+                </select>
+            </div>
+            <label for="password" class="col-sm-1 col-form-label">:النوع</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="debtlimit" name="debtlimit" [defaultValue]="0">
+            </div>
+            <label for="centername" class="col-sm-1 col-form-label">:حد المديونية</label>
+        </div>  
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+              <input type="text" pattern="[0-9]" class="form-control" id="boxNr" name="boxNr" [defaultValue]="0">
+            </div>
+            <label for="boxNr" class="col-sm-1 col-form-label">:رقم الصندوق</label>
+        </div>
+        <hr>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+            <div class="col-sm-7">
+               <select id="packtl" name="packtl" class="form-control" style="text-align: end;">
+               </select>
+           </div>
+           <label for="packtl"  class="col-sm-1 col-form-label">:باقة الليرة التركية</label>
+        </div>
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+          <div class="col-sm-7">
+            <select id="packusd" name="packusd" class="form-control" style="text-align: end;">
+            </select>
+         </div>
+         <label for="packusd"  class="col-sm-1 col-form-label">:باقة الدولار</label>
+        </div>   
+        <div class="row mb-3" style="display: flex; justify-content: center;">
+          <div class="col-sm-7">
+            <select id="packeur" name="packeur" class="form-control" style="text-align: end;">
+            </select>
+          </div>
+          <label for="packeur"  class="col-sm-1 col-form-label">:باقة الدولار</label>
+        </div>
+        <hr><hr>
+        <div class="button-row" style="display: flex; justify-content: space-between;">
+          <div class="left-button">
+            <button type="cancel" class="btn btn-danger" style="margin-left: 100px;">الغاء</button>
+          </div>
+          <div class="right-button">
+            <button type="submit" class="btn btn-success" style="margin-right: 100px;">اضافة مركز</button>
+          </div>
+        </div> 
+      </form>
+      <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button class="btn btn-danger" onclick="goBack()">الغاء</button>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-top: 20px; margin-right: 50px;">
+        <input type="submit" id="save" class="btn btn-success" value="حــفـظ">
+      </div> -->
+      
+      <br>
+      
+    </div>

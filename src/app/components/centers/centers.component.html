@@ -1,0 +1,80 @@
+<div class="hmz" >
+  <h4> جميع الصناديق</h4>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-top: 10%; margin-right: 15px;">
+    <a id="mybutton" href="centers_2"><button class="btn btn-secondary" style="margin-left: 15px;"><i class="fa fa-dollar"></i>اظهار الأرصدة</button></a>
+    <a id="mybutton" href="deletedcenters"><button class="btn btn-danger" style="margin-left: 15px;"><i class="fa fa-trash"></i>المراكز المحذوفة</button></a>
+    <a id="mybutton" href="subcenters"><button class="btn btn-info" style="margin-left: 15px;"><i class="fa fa-cubes"></i> المراكز الفرعية </button></a>
+    <a id="mybutton" (click)="navigateTo('addCenter')"><button class="btn btn-success" style="margin-left: 15px;"> <i class="fa fa-plus"></i> اضافة مركز جديد</button></a>
+  </div>
+  <br><br><br>  
+  <div id="tablecon" style="display: block;">
+    <div id="example_wrapper" class="dataTables_wrapper no-footer">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-bottom: 50px; margin-right: 8px;">
+        <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>نسخ إلى الحافظة</span></button>
+        <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>CSV</span></button>
+        <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>طباعة</span></button>
+        <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button" aria-haspopup="true"><span>إظهار 10 أسطر</span></button>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="ابحث عن الصناديق" aria-label="Search" style="text-align: right; margin-left: 20px;">
+        </form>
+      </div>
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" aria-label="رابط التوثيق" style="max-width: 70px;">رابط التوثيق</th>
+            <th scope="col" aria-label="قفل" style="max-width: 50px;">قفل</th>
+            <th scope="col" aria-label="etwas" style="max-width: 50px;"> etwas </th>
+            <th scope="col" aria-label="الدولة" style="max-width: 50px;">الدولة</th>
+            <th scope="col" aria-label="المدينة" style="max-width: 50px;">المدينة</th>
+            <th scope="col" aria-label="عنوان" style="max-width: 1000px;">عنوان</th>
+            <th scope="col" aria-label="النوع" style="max-width: 100px;">النوع</th>
+            <th scope="col" aria-label="الاسم" style="max-width: 100px;">الاسم</th>
+            <th scope="col" aria-sort="ascending" aria-label="" style="max-width: 25px;">BoxNr</th>
+            <th scope="col" aria-sort="ascending" aria-label="" style="max-width: 25px; margin-left: 13px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let center of centers">
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              </div>
+            </td>
+            <td>etwas</td>
+            <td>{{center.country}}</td>
+            <td>{{center.city}}</td>
+            <td>{{center.adress}}</td>
+            <td>{{center.type}}</td>
+            <td>{{center.name}}</td>
+            <th scope="row">{{center.id}}</th>
+            <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-top: 5%; margin-bottom: 2%; margin-right: 8px;">
+    <button type="submit" class="btn btn-info" name="analis" id="analis" disabled=""><i class="fa fa-area-chart"></i>مخطط بياني</button>
+    <button type="submit" class="btn " name="kar" id="kar" disabled=""> <i class="fa fa-heart"></i>ارباح المركز</button>
+    <button type="submit" class="btn btn-theme03" name="account" id="acc" disabled=""><i class="fa fa-server"></i>كشف حساب</button>
+    <button type="submit" class="btn btn-data" name="sub" id="sub" disabled=""><i class="fa fa-cubes"></i>المراكز الفرعية</button>
+    <button type="submit" class="btn btn-theme02" name="users" id="users" disabled=""> <i class="fa fa-users"></i>مستخدمين</button>
+    <button type="submit" class="btn btn-default " name="perm" id="perm" disabled=""><i class="fa fa-gears"></i>صلاحيات المركز</button>
+    <button type="submit" class="btn btn-info" disabled="" name="update" id="update"><i class="fa fa-edit"></i>تعديل</button>
+    <button type="submit" class="btn btn-danger" disabled="" name="delete" id="delete"><i class="fa fa-trash"></i>حذف</button>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-bottom: 50px; margin-right: 8px;">
+    <button type="submit" class="btn btn-default" name="packet" id="packet" disabled=""> <i class="fa fa-magic"></i> تعديل الباقات </button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme02" name="ver" id="ver" disabled=""><i class="fa fa-arrow-circle-left"></i>قيد افتتاحي</button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme" name="kayit" id="kayit" disabled=""><i class="fa fa-exchange"></i>قيد من الى</button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-danger" name="cut" id="cut" disabled=""><i class="fa fa-cut"></i>قص</button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme" name="analis" id="newout" disabled=""> <i class="fa fa-plane"></i>ارسال حركة</button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-primary" name="out" id="out" disabled=""><i class="fa fa-arrow-left"></i>حوالات صادرة</button>
+    <button type="submit" style="font-family: 'tajawal';" class="btn btn-success" name="in" id="in" disabled=""><i class="fa fa-arrow-right"></i>حوالات واردة</button>
+  </div>
+</div>

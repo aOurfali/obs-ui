@@ -1,0 +1,170 @@
+<div class="app-component app-container">
+    <nav id="header" class="navbar navbar-expand-lg" style="background-color: #886ee8;">
+      <div class="container-fluid" style="background-color: #886ee8;">
+        <div class="d-flex justify-content-between">
+          <a style="text-align: right;" type="button" (click)="navigateTo('logout')">تسجيل الخروج</a>
+          <!-- <i type="button" class="bi bi-box-arrow-left" style="font-size: 1.5rem; color: #5600a2;"></i> -->
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a  type="button" class="nav-item" title=" الوضع الليلي " href=""><i  style="font-size: 1.5rem;" class="bi bi-moon-fill"></i></a>
+          <a class="nav-item" style=" padding: 3px" title="صندوق الوارد" href="inbox"> 
+              <i class="bi bi-envelope-fill" style="font-size: 2rem;"></i> 
+              <span class="badge position-top p-1 bg-danger border-light rounded-circle">9+</span></a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="ابحث عن حوالة" aria-label="Search" style="text-align: right;">
+          </form>
+        </div>
+      </div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="d-flex justify-content-end margin-right: 20px">
+          <li class="dropdown">
+            <a style="text-align: right;" href="#"  class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+             الأدوات  <i class="fas fa-gear"></i> <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="posts"> الاخبار <i class="fa fa-bullhorn"></i></a></li>
+                <li><a class="dropdown-item" href="posts_users">المنشورات <i class="fa fa-twitter"></i></a></li>
+                <li><a class="dropdown-item" href="messages"> الرسائل <i class="fa fa-envelope"></i></a></li>
+                <li><a class="dropdown-item" href="paketrange"> تعديل الباقات <i class="fa fa-magic"></i></a></li>
+                <li><a class="dropdown-item" href="sarf"> أسعار القص <i class="fa fa-cut"></i></a></li>
+                <li><a class="dropdown-item" href="tafrik"> تفريق القص <i class="fa fa-cut"></i></a></li>
+                <li><a class="dropdown-item" href="env"> متغيرات البيئة <i class="fa fa-tree"></i></a></li>
+                <li><a class="dropdown-item" href="statuses">رسائل الحالة <i class="fa fa-envelope"></i></a></li>
+                <li><a class="dropdown-item" href="users"> ادارة المستخدمين <i class="fa fa-user"></i></a></li>
+                <li><a class="dropdown-item" href="curs"> ادارة العملات <i class="fa fa-dollar"></i></a></li>
+                <li><a class="dropdown-item" href="eventrecord"> سجل الأحداث <i class="fa fa-bell"></i></a></li>
+                <li><a class="dropdown-item" href="blacklist"> القائمة السوداء <i class="fa fa-eye"></i></a></li>
+                <li><a class="dropdown-item" href="logrecord"> سجل تسجيل الدخول <i class="fa fa-eye"></i></a></li>
+                <li><a class="dropdown-item" href="changepass"> تغيير كلمة المرور <i class="fa fa-lock"></i></a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"aria-expanded="false"> 
+              ادارة النظام <i class="fa fa-exchange"></i><span class="caret"></span></a>
+            <ul class="dropdown-menu  dropdown-menu-end">
+                <li><a class="dropdown-item" style="text-align: right;" href="nizamtrans"> جميع حركات النظام <i class="fas fa-paper-plane"></i></a></li>
+                <li><a class="dropdown-item" style="text-align: right;" href="nizamtransout"> حركات النظام حسب الصندوق <i class="fas fa-paper-plane"></i></a></li>
+                <li><a class="dropdown-item" style="text-align: right;" href="nizamtransin"> حركات جاهزة للترحيل <i class="fas fa-clock"></i></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" style="text-align: right;" href="nizamsarf"> قص مراكز النظام <i class="fas fa-cut"></i></a></li>
+                <li><a class="dropdown-item" style="text-align: right;" href="dafatcheck_1"> تدقيق حركات السوري <i class="fas fa-check"></i></a></li> 
+              </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              المعاملات <i class="fa fa-bullhorn"></i><span class="caret"></span></a>
+            <ul class="dropdown-menu  dropdown-menu-end">
+                <li><a class="dropdown-item" href="dafatsearch"> القيود <i class="fa fa-exchange"></i></a></li>
+                <li><a class="dropdown-item" href="transallVIP"> اعتمادات داخلية <i class="fa fa-check-circle"></i></a></li>
+                <li><a class="dropdown-item" href="transallVIP_ext"> اعتمادات خارجية <i class="fa fa-check-square"></i></a></li>          
+              </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              الحوالات <i class="fa fa-paper-plane"></i>  <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="transall"> جميع الحوالات <i class="fa fa-paper-plane"></i></a></li>
+                <li><a class="dropdown-item" href="transactive"> حوالات مستلمة <i class="fa fa-check-square"></i></a></li>
+                <li><a class="dropdown-item" href="transrcv"> حوالات غير مسلمة <i class="fa fa-minus-circle"></i></a></li>
+                <li><a class="dropdown-item" href="transdeleted"> حوالات محذوفة <i class="fa fa-trash"></i></a></li>
+                <li><a class="dropdown-item" href="transall_adv"> حوالات متقدمة <i class="fa fa-paper-plane"></i></a></li>
+                <li><a class="dropdown-item" href="transblok"> حوالات  محجوزة  <i class="fa fa-ban"></i></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="dropdown-item" href="incomesearch"> حوالات قيد التسليم - داخلي  <i class="fa fa-clock"></i></a></li>
+                <li><a class="dropdown-item" href="incomesearch_ext">  حوالات قيد التسليم - خارجي <i class="fa fa-history"></i></a></li>
+                <li><a class="dropdown-item" href="transactive_1">  تم تسليمها  <i class="fa fa-check"></i></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="dropdown-item" href="check"> جهاز الحوالة <i class="fa fa-mobile-phone"></i> </a></li>
+              </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              الحسابات <i class="fa fa-retweet"></i><span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="mizan"> ميزان المراجعة <i class="fa fa-balance-scale"></i></a></li>              
+              <li><a class="dropdown-item" href="kartable"> مخطط الميزان والارباح <i class="fa fa-area-chart"></i></a></li>              
+              <li><a class="dropdown-item" href="report_1"> تقارير الأرباح <i class="fa fa-area-chart"></i></a></li>              
+              <li><a class="dropdown-item" href="sanadik"> الصناديق <i class="fa fa-cubes"></i></a></li>
+              <li><a class="dropdown-item" href="sanadik_1"> تقرير الأرصدة <i class="fa fa-cubes"></i> </a></li>
+              <li><a class="dropdown-item" href="cutcenters"> مراكز القطع <i class="fa fa-cut"></i> </a></li>
+              <li><a class="dropdown-item" href="accountkar"> ترحيل الأرباح <i class="fa fa-diamond"></i> </a></li>
+              <li><a class="dropdown-item" href="report"> تقارير <i class="fa fa-area-chart"></i></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="account"> كشف حساب  <i class="fa fa-balance-scale"></i></a></li>
+              <li><a class="dropdown-item" href="dafatsearch"> جميع القيود <i class="fa fa-exchange"></i></a></li>
+              <li><a class="dropdown-item" href="mutabaka">  مطابقات <i class="fa fa-check-circle"></i></a></li>              
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               العمليات <i class="fas fa-credit-card"></i> <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" (click)="navigateTo('addkayit')"> قيد من الى <i class="fas fa-exchange"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('addkayit_1')"> قيد متقدم <i class="fas fa-arrows-alt"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('open')"> قيد افتتاحي <i class="fas fa-key"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('addsnin')"> سند قبض <i class="fas fa-arrow-right"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('addsnout')"> سند دفع <i class="fas fa-arrow-left"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('cut')"> سند قص <i class="fas fa-cut"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('addkayit_cut')">سند قص مع اغلاق <i class="fas fa-cut"></i></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" (click)="navigateTo('newout')">حركة صادرة جديدة <i class="fas fa-plane"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('newoutnizam')"> حركة نظام جديدة <i class="fas fa-plane"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('newout_haram')"> حركة سوا مباشر <i class="fas fa-plane"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('newvip')"> اعتماد جديد <i class="fas fa-bolt"></i></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" (click)="navigateTo('translive')"> مراقبة العمليات <i class="fas fa-eye"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('dafatcheck')"> تدقيق القيود <i class="fas fa-check"></i></a></li>
+                <li><a class="dropdown-item" (click)="navigateTo('dafatcheck_1')"> تدقيق حركات السوري <i class="fas fa-check"></i></a></li> 
+              </ul>
+          </li>
+  
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="text-align: right;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            المراكز <i class="fas fa-bank"></i><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end"> 
+              <li><a class="dropdown-item" (click)="navigateTo('centers')"> جميع الصناديق  <i class="fas fa-users"></i> </a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('centcli')"> العملاء  <i class="fas fa-user-secret"></i> </a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('centers_mrkz')"> المراكز <i class="fas fa-user"></i> </a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('subcenters')"> العوابر <i class="fas fa-user-plus"></i></a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('centers_vekil')"> الوكلاء <i class="fas fa-user-plus"></i></a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('deletedcenters')"> سلة المحذوفات <i class="fas fa-trash"></i> </a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="navigateTo('currencyAndLimits')">العملات وحدود المديونية <i class="fas fa-gears"></i></a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('graphtree')"> شجرة التوزع الجغرافي <i class="fas fa-tree"></i></a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('bb')"> عدد حوالات المراكز <i class="fas fa-line-chart"></i></a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('centers_1')"> حركة الصناديق <i class="fas fa-cubes"></i> </a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('mersarf')">  اسعار صرف المراكز <i class="fas fa-cut"></i></a></li>
+            </ul>
+          </li>
+          <a ngPreserveWhitespaces class="navbar-brand" routerLink="/">
+            <img src="assets/images/companylogo.png" class="d-inline-block align-top" (click)="navigateTo('home')" style="min-width: 50px; min-height: 50px; max-width: 80px; max-height: 80px;" alt="logo">
+            <span class="d-lg-none d-xl-inline"><!-- {{appTitle}} --></span>
+          </a>
+        </div>
+      </ul>
+    </nav>
+    <ul class="nav justify-content-center">
+      <li class="nav-item"><a data-toggle="tooltip" title="العملاء" class="ax" href="centers">             <img class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/1.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="كشف حساب" class="ax" href="account">           <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/2.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="الصناديق" class="ax" href="sanadik">           <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"src="assets/images/navbar/3.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="مراكز القطع    " class="ax" href="cutcenters"> <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"src="assets/images/navbar/4.png"></a></li> 
+      <li class="nav-item"><a data-toggle="tooltip" title="جميع الحوالات    " class="ax" href="transall">  <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/5.png"></a></li> 
+      <li class="nav-item"><a data-toggle="tooltip" title="حوالات مستلمة" class="ax" href="transactive">   <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/6.png"></a></li> 
+      <li class="nav-item"><a data-toggle="tooltip" title="حوالات غير مسلمة  " class="ax" href="transrcv"> <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/7.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="قيد من الى" class="ax" href="addkayit">         <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/8.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="سند قبض" class="ax" href="addsnin">             <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/17.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="سند دقع" class="ax" href="addsnout">            <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/18.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="سند قص" class="ax" href="cut">                  <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/9.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="حوالة جديدة" class="ax" href="newout">          <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/10.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="القيود" class="ax" href="dafatsearch">          <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/11.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="قيد التسليم" class="ax" href="incomesearch">    <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/19.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="تم التسليم" class="ax" href="transactive_1">    <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/20.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="تعديل الباقات" class="ax" href="paketrange">    <img  class="img-fluid" style="max-width: 80px; max-height: 80px;" src="assets/images/navbar/12.png "></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="اسعار القص" class="ax" href="sarf">            <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/13.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="تقارير" class="ax" href="report">              <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/14.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="قيد متقدم" class="ax" href="addkayit_1">       <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/15.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="بحث متقدم" class="ax" href="advanced_search">  <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/16.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="مراقبة العمل" class="ax" href="translive">     <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/21.png"></a></li>
+      <li class="nav-item"><a data-toggle="tooltip" title="مصادقة القيود" class="ax" href="kayitwait">    <img  class="img-fluid"  style="max-width: 80px; max-height: 80px;"  src="assets/images/navbar/22.png"></a></li>
+     </ul>
+  </div>

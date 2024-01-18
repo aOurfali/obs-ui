@@ -1,0 +1,182 @@
+<div class="row" style="direction:rtl">
+  <br>
+  <main class="d-flex align-items-center min-vh-100">
+    <div class="col-md-8"> 
+      <div class="tabs-container">
+        
+          <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="newTrans-tab" data-bs-toggle="tab" data-bs-target="newTrans-tab" type="button" role="tab"
+              aria-controls="newTrans-tab-pane" aria-selected="true" style="font-size: 18px; background-color:#158165; color:white;">حوالة جديدة</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="nizamTrans-tab" data-bs-toggle="tab" data-bs-target="nizamTrans-tab" type="button" role="tab"
+              aria-controls="nizamTrans-tab-pane" aria-selected="false" style="font-size: 18px; background-color:#158165; color:white;">حوالة نظام</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="new-sawa-tab" data-bs-toggle="tab" data-bs-target="new-sawa-tab" type="button" role="tab"
+              aria-controls="new-sawa-tab-pane" aria-selected="false" style="font-size: 18px; background-color:#158165; color:white;">حوالة سوا</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="new-vip-tab" data-bs-toggle="tab" data-bs-target="new-vip-tab" type="button" role="tab"
+              aria-controls="new-vip-tab-pane" aria-selected="false" style="font-size: 18px; background-color:#158165; color:white;">اعتماد جديد</button>
+            </li>
+          </ul>
+       
+        <div class="tab-content" id="nav-tabContent" style="margin-top: 25px;">
+          <div class="tab-pane fade show active" id="newTrans-tab" role="tabpanel" aria-labelledby="newTrans-tab" tabindex="0">  
+            <form name="frm" id="frm" class="form-horizontal" method="post" enctype="multipart/form-data" style="align-items: center;">
+              <div class="row " style="direction:rtl">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="control-label text-nowrap">اسم المستفيد</label>
+                </div>
+                <div class="col-md-4 col-xs-12  text-right">
+                  <input autocomplete="off" size="20" class="text-primary form-control" type="text" placeholder="اسم المستفيد" style="font-family:'tajawal', FontAwesome" id="rcvname" name="rcvname">
+                </div>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="control-label text-nowrap">هاتف المستفيد</label>
+                </div>
+                <div class="col-md-4 col-xs-12  text-right">
+                  <input size="20" autocomplete="off" class="text-primary form-control" placeholder="" style="font-family:'tajawal', FontAwesome" type="tel" id="rcvphone" name="rcvphone">
+                </div>   
+              </div>  
+              <br>
+              <div class="row " style="direction:rtl;">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="control-label text-nowrap">الجهة</label>
+                </div> 
+                <div class="col-md-10 col-xs-12  text-right dc ">
+                  <div class="dropdown bootstrap-select bs3" style="width: 100%;">
+                    <select class="selectpicker" data-width="100%" id="merkez" name="merkez" data-size="10" data-dropup-auto="false" style="width:100%; " data-live-search="true" title="اختر الوجهة" dir="rtl" tabindex="-98">
+                    </select>
+                  </div>
+                </div>           
+              </div>
+              <br> 	  
+              <div class="row " style="direction:rtl">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap"> عملة الارسال</label>
+                </div>
+                <div class="col-md-4 col-xs-12   text-right">
+                  <select name="currency" class="custom-select form-control " id="currency" style="max-width: 100%">
+                    <option value="">اختر العملة</option>
+                  </select>
+                </div>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap"> مبلغ الارسال</label>
+                </div>
+                <div class="col-md-4 col-xs-12  text-right">
+                  <input size="20" autocomplete="off" class="form-control text-primary" type="number" id="amount" name="amount" min="1" onchange="getinfo()">
+                </div>
+              </div> 
+              <div class="row" style="direction:rtl; margin-top: 10px;">
+                <br>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="control-label text-nowrap">  عملة التسليم  </label>
+                </div>
+                <div class="col-md-4 col-xs-12 text-right">
+                  <select name="currencyrcv" class="custom-select form-control" id="currencyrcv" onchange="getinfo()" style="max-width: 100%">
+                    <option value="">  اختر العملة  </option>
+                  </select>
+                </div>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">مبلغ التسليم</label>
+                </div>
+                <div class="col-md-4 col-xs-12 text-right">
+                  <input size="20" autocomplete="off" class="form-control text-primary" type="text" id="amountrcv" name="amountrcv" readonly="">
+                </div>
+              </div> 
+              <div class="row " style="direction:rtl; display: none;">
+                <br>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">اسم المرسل</label>
+                </div>
+                <div class="col-md-4 col-xs-12  text-right">
+                  <input autocomplete="off" size="20" class="text-primary form-control" type="text" placeholder="اسم المرسل" style="font-family:'tajawal', FontAwesome" id="sendername" name="sendername">
+                </div>
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">هاتف المرسل</label>
+                </div>
+                <div class="col-md-4 col-xs-12  text-right">
+                  <input size="20" autocomplete="off" class="text-primary form-control" placeholder="هاتف المرسل" style="font-family:'tajawal', FontAwesome" onkeypress="return isNumberKey(event)" type="tel" id="senderphone" name="senderphone">
+                </div>
+              </div>
+              <br>
+              <div class="row " style="direction:rtl">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">الأجور</label>
+                </div>
+                <div class="col-md-4 col-xs-12 text-right">
+                  <input size="20" class="form-control text-primary" type="text" id="tax" name="tax" value="0" readonly="">
+                  <input size="20" class="form-control text-primary" type="hidden" id="intax" name="intax" value="0">
+                  <input size="20" class="form-control text-primary" type="hidden" id="subtax" name="subtax" value="0">
+                </div> 
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">الصرف</label>
+                </div>
+                <div class="col-md-4 col-xs-12 text-right">
+                  <input size="20" class="form-control text-primary" type="hidden" id="total" name="total" value="0">
+                  <input size="20" class="form-control text-primary" type="text" id="rate" name="cut" value="1" readonly="">
+                </div>
+              </div>
+              <br>
+              <div class="row " style="direction:rtl">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">ملاحظات</label>
+                </div>
+                <div class="col-md-10 col-xs-12 text-right  ">
+                  <textarea id="note" name="note" class="form-control" rows="2"></textarea>
+                </div>
+              </div> 
+              <br>
+              <div class="row " style="direction:rtl">
+                <div class="col-md-2 col-xs-8 text-right">
+                  <label class="  control-label text-nowrap">عنوان</label>
+                </div>
+                <div class="col-md-9 col-xs-12 text-right">
+                  <div class="form-control" style="  font-weight: bold; height: fit-content; min-height: 50px" id="inputaddress"></div>
+                </div> 
+                <div type="submit" style="font-family: 'tajawal';   " class="btn  col-md-1 text-left " onclick="copp()">
+                                        نسخ   
+                                        <i class="fa fa-copy" style="font-size:20px;"></i>
+                </div>   
+              </div>     
+              <div class="col-md-12 " style="direction:rtl">
+                <div class="col-md-12  text-right">
+                  <p id="msg" class="alert alert-danger" style="display: none;" role="alert"></p>
+                </div>  
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="margin-top: 20px;">
+                <button type="submit" style="font-family:'tajawal';" id="save" class="btn btn-success col-md-10" name="submit1">
+                  ارســـال<i class="fa fa-send" style="font-size:20px;"></i>
+                </button>
+              </div> 
+              <div class="row " style="direction:rtl">
+                <p id="error" style="color:red; font-size: 18px;"></p>
+              </div> 
+              <input type="hidden" name="tok" value="f0a42b4d40e1820b3a1e6f3e8b570fcf">
+            </form>
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+          <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+        </div>
+      </div>	
+    </div>
+    <div id="rate_prices" class="col-md-4" style=" background-color: white;padding: 20px; border: 1px solid #d5dcec!important; border-radius: 10px;"> 
+      <div style="overflow-y:auto;overflow-x:auto ;width: 100%; position: relative;">
+        <h4>صرف الليرة السورية</h4>
+        <table id="example" class="table-bordered text-center table-striped " style="  width: 100%;font-size: 14px; ;z-index: 1;  ">
+          <thead class="thead_dark">
+            <tr style="height: 40px;">  
+              <th class="text-center">الجهة</th>
+              <th colspan="3" class="text-center">العملات</th>
+            </tr>
+          </thead>
+        </table>
+      </div>	
+    </div> 
+  </main>
+  
+        
+</div>

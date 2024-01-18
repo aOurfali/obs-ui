@@ -1,0 +1,187 @@
+
+<div class="hmz" >
+    <h4>العملاء</h4>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-top: 30px; margin-right: 15px;">
+        <a id="mybutton" href="centers_2"><button class="btn btn-secondary" style="margin-left: 15px;"><i class="fa fa-dollar"></i>اظهار الأرصدة</button></a>
+        <a id="mybutton" href="deletedcenters"><button class="btn btn-danger" style="margin-left: 15px;"><i class="fa fa-trash"></i>المراكز المحذوفة</button></a>
+        <a id="mybutton" href="subcenters"><button class="btn btn-info" style="margin-left: 15px;"><i class="fa fa-cubes"></i> المراكز الفرعية </button></a>
+        <a id="mybutton" href="addarticle"><button class="btn btn-success" style="margin-left: 15px;"> <i class="fa fa-plus"></i> اضافة عميل جديد</button></a>
+    </div>
+    <br>   <br> <br>  
+    
+    <div id="tablecon" style="display: block;">
+             <form method="post" enctype="multipart/form-data" action="delupdart" onsubmit="return confirm('هل أنت متأكد ؟؟');">
+    <div id="example_wrapper" class="dataTables_wrapper no-footer">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-bottom: 50px; margin-right: 8px;">
+            <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>نسخ إلى الحافظة</span></button>
+            <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>CSV</span></button>
+            <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button"><span>طباعة</span></button>
+            <button class="btn btn-outline-primary" tabindex="0" aria-controls="example" type="button" aria-haspopup="true"><span>إظهار 10 أسطر</span></button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="ابحث عن عميل" aria-label="Search" style="text-align: right; margin-left: 20px;">
+            </form>
+        </div>
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="رابط التوثيق" style="max-width: 70px;">رابط التوثيق</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="قفل" style="max-width: 50px;">قفل</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="etwas" style="max-width: 50px;"> etwas </th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="الدولة" style="max-width: 50px;">الدولة</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="المدينة" style="max-width: 50px;">المدينة</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="عنوان" style="max-width: 1000px;">عنوان</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="النوع" style="max-width: 100px;">النوع</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-label="الاسم" style="max-width: 100px;">الاسم</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-sort="ascending" aria-label="" style="max-width: 25px;">BoxNr</th>
+              <th scope="col" class="my-icon fa fa-chevron-up" aria-sort="ascending" aria-label="" style="max-width: 25px; margin-left: 13px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let center of centers">
+              <td>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+              </td>
+              <td>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+              </td>
+              <td>etwas</td>
+              <td>{{center.country}}</td>
+              <td>{{center.city}}</td>
+              <td>{{center.adress}}</td>
+              <td>{{center.type}}</td>
+              <td>{{center.name}}</td>
+              <th scope="row">{{center.id}}</th>
+              <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-bottom: 20px; margin-right: 8px;">
+            <button type="submit" style="font-family: 'tajawal';" class="btn btn-info" disabled="" name="update" id="update">
+                <i class="fa fa-edit"></i>تعديل</button>
+            <button type="submit" style="font-family: 'tajawal';" class="btn btn-danger" disabled="" name="delete" id="delete">
+                <i class="fa fa-trash"></i>حذف</button>
+        </div>
+
+<script type="text/javascript"> window.onload = function () { document.getElementById("tablecon").style.display = "block";}; </script>  
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end" style="font-family: 'tajawal'; margin-bottom: 50px; margin-right: 8px;">
+
+<form name="frmpacket" class="form-horizontal" action="packet" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select1" id="select1" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-default" name="packet" id="packet" disabled=""> 
+         <i class="fa fa-magic"></i>
+         تعديل الباقات 
+       </button>
+</form> 
+
+  <form name="frmout" class="form-horizontal" action="outsearch" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select2" id="select2" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-primary" name="out" id="out" disabled=""> 
+         <i class="fa fa-arrow-left"></i>
+       حوالات صادرة
+       </button>
+ </form> 
+ 
+<form name="frmin" class="form-horizontal" action="insearch" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select3" id="select3" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-success" name="in" id="in" disabled=""> 
+         <i class="fa fa-arrow-right"></i>
+       حوالات واردة
+       </button>
+ </form>
+ 
+   <form name="frmacc" class="form-horizontal" action="account" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select4" id="select4" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme03" name="account" id="acc" disabled="">
+             <i class="fa fa-server"></i>
+             كشف حساب
+       </button>
+ </form>
+ <form name="frmver" class="form-horizontal" action="open" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select5" id="select5" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme02" name="ver" id="ver" disabled=""> 
+         <i class="fa fa-arrow-circle-left"></i>
+      قيد افتتاحي
+       </button>
+ </form>
+
+   <form name="frmkayit" class="form-horizontal" action="addkayit" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select10" id="select10" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme" name="kayit" id="kayit" disabled=""> 
+       
+         <i class="fa fa-exchange"></i>
+         قيد من الى
+       
+       </button>
+ </form>
+
+   <form name="frmcut" class="form-horizontal" action="cut" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select9" id="select9" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-danger" name="cut" id="cut" disabled=""> 
+       
+         <i class="fa fa-cut"></i>
+         قص
+       
+       </button>
+ </form>
+ 
+ <form name="frmsub" class="form-horizontal" action="sub" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select7" id="select7" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-data" name="sub" id="sub" disabled=""> 
+         <i class="fa fa-cubes"></i>
+       المراكز الفرعية
+       </button>
+ </form>
+
+   <form name="frmsub" class="form-horizontal" action="analis" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select8" id="select8" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-info" name="analis" id="analis" disabled=""> 
+       
+         <i class="fa fa-area-chart"></i>
+         مخطط بياني
+       
+       </button>
+ </form>
+
+   <form name="frmsub" class="form-horizontal" action="newout" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select15" id="select15" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme" name="analis" id="newout" disabled=""> 
+       
+         <i class="fa fa-plane"></i>
+           ارسال حركة
+       
+       </button>
+ </form>
+
+          <form name="frmkar" class="form-horizontal" action="karcenter" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select11" id="select11" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn  " name="kar" id="kar" disabled=""> 
+       
+         <i class="fa fa-heart"></i>
+         ارباح المركز 
+       
+       </button>
+ </form>
+
+        <form name="frmperm" class="form-horizontal" action="permissions_center" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select44" id="select44" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-default " name="perm" id="perm" disabled=""> 
+       
+          <i class="fa fa-gears"></i>
+         صلاحيات المركز 
+       
+       </button>
+ </form>
+ <form name="frmver" class="form-horizontal" action="user_center" method="post" enctype="multipart/form-data">
+       <input type="hidden" name="select55" id="select55" value="">
+       <button type="submit" style="font-family: 'tajawal';" class="btn btn-theme02" name="users" id="users" disabled=""> 
+         <i class="fa fa-users"></i>
+    مستخدمين
+       </button>
+ </form>
+</div>
